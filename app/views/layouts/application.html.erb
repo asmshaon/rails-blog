@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Blog</title>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<%= render 'layouts/header' %>
+
+<!-- .container -->
+<div id="wrapper" class="container">
+
+  <%= flash_messages %>
+
+  <%= yield %>
+
+  <%= render 'layouts/popup_sign_in_sign_up' unless user_signed_in? %>
+
+</div>
+<!-- /.container -->
+</body>
+</html>

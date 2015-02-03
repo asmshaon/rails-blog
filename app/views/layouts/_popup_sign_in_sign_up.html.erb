@@ -1,0 +1,40 @@
+<div class="modal fade bs-modal-sm" id="sign_in_sign_up_modal" tabindex="-1" role="dialog" aria-labelledby="sign_in_sign_up_modal" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <br>
+
+      <div class="bs-example bs-example-tabs">
+        <ul id="myTab" class="nav nav-tabs">
+          <li class="active"><a href="#signin" data-toggle="tab">Sign In</a>
+          </li>
+          <li class=""><a href="#signup" data-toggle="tab">Register</a></li>
+          <li class=""><a href="#why" data-toggle="tab">Why?</a></li>
+        </ul>
+      </div>
+      <div class="modal-body">
+        <div id="myTabContent" class="tab-content">
+          <div class="tab-pane fade in" id="why">
+            <p>We need this information so that you can receive access to the
+              site and its content. Rest assured your information will not be
+              sold, traded, or given to anyone.</p>
+
+            <p></p><br> Please contact
+            <a mailto:href="srabon.php@gmail.com"></a>srabon.php@gmail.com</a>
+            for any other inquiries.</p>
+          </div>
+          <div class="tab-pane fade active in" id='signin'>
+            <%= render 'users/sessions/popup_sign_in_form' unless user_signed_in? %>
+          </div>
+          <div class="tab-pane fade" id='signup'>
+            <%= render 'users/registrations/popup_sign_up_form' unless user_signed_in? %>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <center>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </center>
+      </div>
+    </div>
+  </div>
+</div>
