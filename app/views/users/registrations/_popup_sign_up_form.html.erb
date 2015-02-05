@@ -1,3 +1,10 @@
+<% if request.original_url.include? 'password'
+     resource = User.new
+   else
+     resource ||= User.new
+   end
+%>
+
 <%= form_for(resource, as: resource_name,
              url: registration_path(resource_name),
              html: {:id => 'popup_sign_up_form'},

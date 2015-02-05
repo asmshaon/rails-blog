@@ -1,12 +1,21 @@
-<h2>Resend confirmation instructions</h2>
+<div class='row no-margin sign-in-sign-up-wrapper'>
+  <div class='col-lg-3 col-md-3 col-sm-2 col-xs-1'></div>
+  <div class='col-lg-6 col-md-6 col-sm-8 col-xs-10'>
+    <h2 class='text-center'>Resend confirmation instructions</h2>
+    <hr/>
+    <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: {method: :post}) do |f| %>
+        <%= devise_error_messages! %>
 
-<%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
-  <%= devise_error_messages! %>
+        <div class="form-group">
+          <%= f.label :email %><br/>
+          <%= f.email_field :email, class: 'form-control', autofocus: true %>
+        </div>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, autofocus: true %></div>
-
-  <div><%= f.submit "Resend confirmation instructions" %></div>
-<% end %>
-
-<%= render "users/shared/links" %>
+        <div class="actions">
+          <%= f.submit 'Resend confirmation instructions' %>
+        </div>
+        <%= render 'users/shared/links' %>
+    <% end %>
+  </div>
+  <div class='col-lg-3 col-md-3 col-sm-2 col-xs-1'></div>
+</div>

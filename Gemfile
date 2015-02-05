@@ -33,9 +33,9 @@ gem 'therubyracer', '~> 0.12.1'
 gem 'spring',        group: :development
 
 gem 'devise'
-gem "omniauth"
-gem "omniauth-facebook"
-gem "omniauth-twitter"
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-twitter'
 
 gem 'ckeditor', github: 'galetahub/ckeditor'
 gem 'paperclip'

@@ -1,16 +1,34 @@
-<h2>Change your password</h2>
+<div class='row no-margin sign-in-sign-up-wrapper'>
+  <div class='col-lg-3 col-md-3 col-sm-2 col-xs-1'></div>
+  <div class='col-lg-6 col-md-6 col-sm-8 col-xs-10'>
+    <h2 class='text-center'>Change your password</h2>
+    <hr/>
+    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: {method: :put}) do |f| %>
+        <%
+           unless devise_error_messages!.blank?
+             str = devise_error_messages!
+             replace = { '1 error prohibited this user from being saved:' => '', '<h2>' => '', '<ul>' => '', '<li>' => ''}
+             replace.map.each { |k, v| str.sub!(k, v) }
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
-  <%= f.hidden_field :reset_password_token %>
+             flash.now[:error] = str.html_safe
+           end
+        %>
+        <%= f.hidden_field :reset_password_token %>
 
-  <div><%= f.label :password, "New password" %><br />
-    <%= f.password_field :password, autofocus: true, autocomplete: "off" %></div>
+        <div class="form-group"><%= f.label :password, 'New password' %><br/>
+          <%= f.password_field :password, class: 'form-control', autofocus: true, autocomplete: 'off' %>
+        </div>
 
-  <div><%= f.label :password_confirmation, "Confirm new password" %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
+        <div class="form-group"><%= f.label :password_confirmation, 'Confirm new password' %>
+          <br/>
+          <%= f.password_field :password_confirmation, class: 'form-control', autocomplete: 'off' %>
+        </div>
 
-  <div><%= f.submit "Change my password" %></div>
-<% end %>
-
-<%= render "users/shared/links" %>
+        <div class="actions">
+          <%= f.submit 'Change my password', class: 'btn btn-primary' %>
+        </div>
+        <%= render 'users/shared/links' %>
+    <% end %>
+  </div>
+  <div class='col-lg-3 col-md-3 col-sm-2 col-xs-1'></div>
+</div>
