@@ -4,6 +4,7 @@
       <div class="row clearfix">
             <div class="col-sm-10">
               <div class="post-title"><%= @post.title %></div>
+              <div><%= social_share_button_tag(@post.title, :popup => 'true')  %></div>
             </div>
             <div class="col-sm-2">
               <% if user_signed_in? %>

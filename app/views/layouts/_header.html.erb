@@ -14,7 +14,7 @@
 
       <% if user_signed_in? %>
           <span class="pull-right user_inout"><a href="/users/sign_out">Logout</a></span>
-          <span class="pull-right username">Welcome, <%= current_user.name %> </span>
+          <span class="pull-right username">Welcome, <%= link_to current_user.name, edit_user_registration_path %></span>
       <% else %>
           <span class="pull-right user_inout"><a href="#" data-toggle="modal" data-target=".bs-modal-sm">Sign In</a></span>
       <% end %>

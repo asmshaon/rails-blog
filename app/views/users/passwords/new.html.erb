@@ -9,7 +9,6 @@
              str = devise_error_messages!
              replace = { '1 error prohibited this user from being saved:' => '', '<h2>' => '', '<ul>' => '', '<li>' => ''}
              replace.map.each { |k, v| str.sub!(k, v) }
-
              flash.now[:error] = str.html_safe
            end
         %>
