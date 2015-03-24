@@ -37,6 +37,7 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 gem 'social-share-button'
+gem 'tire'
 
 gem 'ckeditor', github: 'galetahub/ckeditor'
 gem 'paperclip'

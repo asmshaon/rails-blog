@@ -17,8 +17,3 @@
 //= require ckeditor/init
 //= require social-share-button
 //= require_tree .
-
-$('html, body').css({
-  'overflow': 'hidden',
-  'height': 'auto'
-});
