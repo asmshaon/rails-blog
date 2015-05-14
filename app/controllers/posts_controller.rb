@@ -37,23 +37,24 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @post.destroy
+    Post.delay.destroy_post(params[:id])
     flash[:success] = 'Post deleted successfully'
-    respond_with(@post)
+    redirect_to :action => :index
   end
 
   private
-    def set_post
-      @post = Post.find(params[:id])
-    end
 
-    def check_session
-      unless user_signed_in?
-        redirect_to '/users/sign_in'
-      end
-    end
+  def set_post
+    @post = Post.find(params[:id])
+  end
 
-    def post_params
-      params.require(:post).permit(:title, :body, :author)
+  def check_session
+    unless user_signed_in?
+      redirect_to '/users/sign_in'
     end
+  end
+
+  def post_params
+    params.require(:post).permit(:title, :body, :author)
+  end
 end

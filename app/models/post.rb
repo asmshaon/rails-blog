@@ -24,4 +24,9 @@ class Post < ActiveRecord::Base
     Post.tire.index.remove self
   end
 
+  def self.destroy_post (post_id)
+    post = self.find(post_id)
+    post.destroy!
+  end
+
 end

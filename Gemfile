@@ -28,6 +28,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 
 gem 'paper_trail', '~> 3.0.6'
 gem 'therubyracer', '~> 0.12.1'
+gem 'redis-rails'
 
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring',        group: :development
@@ -44,6 +45,11 @@ gem 'paperclip'
 gem 'font-awesome-rails'
 
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
+
+gem 'sidekiq'
+gem 'sinatra', '~> 1.4.6', require: false
+gem 'whenever', :require => false
+gem 'grape'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
